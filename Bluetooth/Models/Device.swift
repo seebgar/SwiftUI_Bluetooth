@@ -17,7 +17,7 @@ struct Device: Hashable, Codable, Identifiable, Comparable {
     var status: String
     
     init(name: String?, description: String, identifier: String?, status: String?) {
-        self.id = name ?? description
+        self.id = identifier ?? description
         self.name = name ?? "Unknown"
         self.description = description
         self.identifier = identifier ?? "Unknown"

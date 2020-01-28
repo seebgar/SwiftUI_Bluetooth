@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct Device: Hashable, Codable, Identifiable {
+struct Device: Hashable, Codable, Identifiable, Comparable {
+    
     var id: String
     var name: String
     var description: String
@@ -21,5 +22,9 @@ struct Device: Hashable, Codable, Identifiable {
         self.description = description
         self.identifier = identifier ?? "Unknown"
         self.status = status ?? "Unknown"
+    }
+    
+    static func < (lhs: Device, rhs: Device) -> Bool {
+        return lhs.name < rhs.name
     }
 }

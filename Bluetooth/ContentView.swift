@@ -11,7 +11,6 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var manager: BluetoothManager
-    @State var showStart: Bool = false
     
     private func activate() {
         self.manager.startManager()
@@ -20,12 +19,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach( self.manager.devices ) {
+                ForEach( self.manager.devices.sorted(by: <) ) {
                     Text("\($0.name) - \($0.identifier) - \($0.status)")
                 }
                 .onDelete(perform: {
                     index in
                     self.manager.devices.remove(at: index.first!)
+                    self.manager.startManager()
                 })
             }
             .id(UUID())
@@ -42,7 +42,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(BluetoothManager())
+        ContentView()
+            .environmentObject(BluetoothManager())
             .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
             .previewDisplayName("iPhone 11")
     }

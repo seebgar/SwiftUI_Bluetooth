@@ -76,12 +76,15 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         print("--> Discovered peripherals")
         print("* Peripheral Name: \(String(describing: peripheral.name))\n* RSSI: \(String(RSSI.doubleValue))\n* Description: \(String(describing: peripheral.description))")
         
-        self.centralManager.stopScan()
         let desc = peripheral.description.split(separator: ",")
         let identifier = desc[1].replacingOccurrences(of: "identifier = ", with: "")
         let status = desc[3].replacingOccurrences(of: "state = ", with: "").replacingOccurrences(of: ">", with: "")
         let apareil = Device(name: peripheral.name, description: peripheral.description, identifier: identifier, status: status)
         devices.append(apareil)
+        
+        if self.devices.count > 10 {
+            self.centralManager.stopScan()
+        }
         
         /**
          Connection Management
@@ -89,14 +92,7 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         //self.centralPeripheral = peripheral
         //self.centralPeripheral.delegate = self
         //self.centralManager.connect(self.centralPeripheral, options: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1 , execute: {
-            if self.devices.count < 10 {
-                 self.centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
-            }
-        })
-        
-        
+    
     }
     
     

@@ -9,13 +9,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
+    
+    @EnvironmentObject var manager: BluetoothManager
+    @State var showStart: Bool = false
+    
+    private func activate() {
+        self.manager.startManager()
     }
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach( self.manager.devices ) {
+                    Text("\($0.name) - \($0.identifier) - \($0.status)")
+                }
+                .onDelete(perform: {
+                    index in
+                    self.manager.devices.remove(at: index.first!)
+                })
+            }
+            .id(UUID())
+            .navigationBarTitle("Bluetooth Devices")
+            .alert(isPresented: self.$manager.showAlert) {
+                Alert(title: Text("Bluetooth is turned off"))
+            }
+        }
+        .onAppear(perform: activate)
+        .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(BluetoothManager())
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+            .previewDisplayName("iPhone 11")
     }
 }
+

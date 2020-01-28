@@ -13,6 +13,8 @@
 		9E86E93A23E099C300BD29E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E86E93923E099C300BD29E6 /* Assets.xcassets */; };
 		9E86E93D23E099C300BD29E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E86E93C23E099C300BD29E6 /* Preview Assets.xcassets */; };
 		9E86E94023E099C300BD29E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E86E93E23E099C300BD29E6 /* LaunchScreen.storyboard */; };
+		9E86E94923E099F400BD29E6 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E94823E099F400BD29E6 /* BluetoothManager.swift */; };
+		9E86E94C23E0AE1100BD29E6 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E94B23E0AE1100BD29E6 /* Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9E86E93C23E099C300BD29E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E86E93F23E099C300BD29E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E86E94123E099C300BD29E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E86E94823E099F400BD29E6 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		9E86E94B23E0AE1100BD29E6 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		9E86E93223E099BF00BD29E6 /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				9E86E94A23E0AE0100BD29E6 /* Models */,
+				9E86E94723E099D400BD29E6 /* Logic */,
 				9E86E93323E099BF00BD29E6 /* AppDelegate.swift */,
 				9E86E93523E099BF00BD29E6 /* SceneDelegate.swift */,
 				9E86E93723E099BF00BD29E6 /* ContentView.swift */,
@@ -73,6 +79,22 @@
 				9E86E93C23E099C300BD29E6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9E86E94723E099D400BD29E6 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				9E86E94823E099F400BD29E6 /* BluetoothManager.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		9E86E94A23E0AE0100BD29E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E86E94B23E0AE1100BD29E6 /* Device.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +170,9 @@
 			files = (
 				9E86E93423E099BF00BD29E6 /* AppDelegate.swift in Sources */,
 				9E86E93623E099BF00BD29E6 /* SceneDelegate.swift in Sources */,
+				9E86E94923E099F400BD29E6 /* BluetoothManager.swift in Sources */,
 				9E86E93823E099BF00BD29E6 /* ContentView.swift in Sources */,
+				9E86E94C23E0AE1100BD29E6 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

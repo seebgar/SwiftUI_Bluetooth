@@ -10,31 +10,29 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var manager: BluetoothManager
-    
-    private func activate() {
-        self.manager.startManager()
-    }
+    @State private var showDevices: Bool = false
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach( self.manager.devices.sorted(by: <) ) {
-                    Text("\($0.name) - \($0.identifier) - \($0.status)")
+            VStack (alignment: .leading, spacing: 10) {
+                
+                NavigationLink(destination: BluetoothView()) {
+                    Text("Bluetooth Manager")
                 }
-                .onDelete(perform: {
-                    index in
-                    self.manager.devices.remove(at: index.first!)
-                    self.manager.startManager()
-                })
+                
+                Button(action: {
+                    self.showDevices.toggle()
+                }) {
+                    Text("Firebase Devices")
+                }
+                
             }
-            .id(UUID())
-            .navigationBarTitle("Bluetooth Devices")
-            .alert(isPresented: self.$manager.showAlert) {
-                Alert(title: Text("Bluetooth is turned off"))
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
+            .sheet(isPresented: $showDevices) {
+                DevicesListView()
             }
         }
-        .onAppear(perform: activate)
         .navigationViewStyle(StackNavigationViewStyle())
     }
     

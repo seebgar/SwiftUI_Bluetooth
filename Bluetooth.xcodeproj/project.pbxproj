@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1BEAE473CEBD0C5DDACC09 /* Pods_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43FC5343CC5E46E37FE9414 /* Pods_Bluetooth.framework */; };
+		9E29FDAC23E2334800152000 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAB23E2334800152000 /* BluetoothView.swift */; };
+		9E29FDAE23E235E100152000 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E29FDAD23E235E100152000 /* GoogleService-Info.plist */; };
+		9E29FDB023E2368B00152000 /* DevicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAF23E2368B00152000 /* DevicesListView.swift */; };
 		9E86E93423E099BF00BD29E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E93323E099BF00BD29E6 /* AppDelegate.swift */; };
 		9E86E93623E099BF00BD29E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E93523E099BF00BD29E6 /* SceneDelegate.swift */; };
 		9E86E93823E099BF00BD29E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E86E93723E099BF00BD29E6 /* ContentView.swift */; };
@@ -18,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		382C4EB89163A10863ACB616 /* Pods-Bluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.release.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		61DEBBF01A53D064D3EB85D5 /* Pods-Bluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.debug.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		9E29FDAB23E2334800152000 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		9E29FDAD23E235E100152000 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E29FDAF23E2368B00152000 /* DevicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesListView.swift; sourceTree = "<group>"; };
 		9E86E93023E099BF00BD29E6 /* Bluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E86E93323E099BF00BD29E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E86E93523E099BF00BD29E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +37,7 @@
 		9E86E94123E099C300BD29E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E86E94823E099F400BD29E6 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		9E86E94B23E0AE1100BD29E6 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		A43FC5343CC5E46E37FE9414 /* Pods_Bluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1BEAE473CEBD0C5DDACC09 /* Pods_Bluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E29FDAA23E2333600152000 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E29FDAB23E2334800152000 /* BluetoothView.swift */,
+				9E29FDAF23E2368B00152000 /* DevicesListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9E86E92723E099BF00BD29E6 = {
 			isa = PBXGroup;
 			children = (
 				9E86E93223E099BF00BD29E6 /* Bluetooth */,
 				9E86E93123E099BF00BD29E6 /* Products */,
+				A868945F87D1307C34C8A240 /* Pods */,
+				AB0FB735DE6A5F4064CEEB2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +82,7 @@
 		9E86E93223E099BF00BD29E6 /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				9E29FDAA23E2333600152000 /* Views */,
 				9E86E94A23E0AE0100BD29E6 /* Models */,
 				9E86E94723E099D400BD29E6 /* Logic */,
 				9E86E93323E099BF00BD29E6 /* AppDelegate.swift */,
@@ -68,6 +91,7 @@
 				9E86E93923E099C300BD29E6 /* Assets.xcassets */,
 				9E86E93E23E099C300BD29E6 /* LaunchScreen.storyboard */,
 				9E86E94123E099C300BD29E6 /* Info.plist */,
+				9E29FDAD23E235E100152000 /* GoogleService-Info.plist */,
 				9E86E93B23E099C300BD29E6 /* Preview Content */,
 			);
 			path = Bluetooth;
@@ -97,6 +121,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A868945F87D1307C34C8A240 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61DEBBF01A53D064D3EB85D5 /* Pods-Bluetooth.debug.xcconfig */,
+				382C4EB89163A10863ACB616 /* Pods-Bluetooth.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AB0FB735DE6A5F4064CEEB2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A43FC5343CC5E46E37FE9414 /* Pods_Bluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E86E94423E099C300BD29E6 /* Build configuration list for PBXNativeTarget "Bluetooth" */;
 			buildPhases = (
+				12112E10265D2BFE5EF9359F /* [CP] Check Pods Manifest.lock */,
 				9E86E92C23E099BF00BD29E6 /* Sources */,
 				9E86E92D23E099BF00BD29E6 /* Frameworks */,
 				9E86E92E23E099BF00BD29E6 /* Resources */,
+				658C8A24F84CC617E03AB9A4 /* [CP] Embed Pods Frameworks */,
+				68D1473A00C433CF5500A75F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E86E94023E099C300BD29E6 /* LaunchScreen.storyboard in Resources */,
+				9E29FDAE23E235E100152000 /* GoogleService-Info.plist in Resources */,
 				9E86E93D23E099C300BD29E6 /* Preview Assets.xcassets in Resources */,
 				9E86E93A23E099C300BD29E6 /* Assets.xcassets in Resources */,
 			);
@@ -163,12 +208,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12112E10265D2BFE5EF9359F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bluetooth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		658C8A24F84CC617E03AB9A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68D1473A00C433CF5500A75F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bluetooth/Pods-Bluetooth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E86E92C23E099BF00BD29E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9E86E93423E099BF00BD29E6 /* AppDelegate.swift in Sources */,
+				9E29FDB023E2368B00152000 /* DevicesListView.swift in Sources */,
+				9E29FDAC23E2334800152000 /* BluetoothView.swift in Sources */,
 				9E86E93623E099BF00BD29E6 /* SceneDelegate.swift in Sources */,
 				9E86E94923E099F400BD29E6 /* BluetoothManager.swift in Sources */,
 				9E86E93823E099BF00BD29E6 /* ContentView.swift in Sources */,
@@ -306,6 +412,7 @@
 		};
 		9E86E94523E099C300BD29E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61DEBBF01A53D064D3EB85D5 /* Pods-Bluetooth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -326,6 +433,7 @@
 		};
 		9E86E94623E099C300BD29E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 382C4EB89163A10863ACB616 /* Pods-Bluetooth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

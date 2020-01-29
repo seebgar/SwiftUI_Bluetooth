@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Combine
 import CoreBluetooth
+import Firebase
 
 
 open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralManagerDelegate {
@@ -17,6 +18,7 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
     /**
      VARIABLES
      */
+    private var ref: DatabaseReference! = Database.database().reference(withPath: "devices")
     private var centralManager: CBCentralManager!
     private var centralPeripheral: CBPeripheral!
     let didChange = ObservableObjectPublisher()
@@ -39,7 +41,6 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         print("--> Init")
         
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
-        // Actualizar cierto tiempo falta
     }
     
     /**
@@ -84,6 +85,17 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         
         if self.devices.count > 10 {
             self.centralManager.stopScan()
+            
+            for device in self.devices {
+                self.ref.child(device.identifier).setValue(
+                    [
+                        "name": device.name,
+                        "identifier": device.identifier,
+                        "description": device.description
+                    ]
+                )
+            }
+            
         }
         
         /**
@@ -92,7 +104,7 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         //self.centralPeripheral = peripheral
         //self.centralPeripheral.delegate = self
         //self.centralManager.connect(self.centralPeripheral, options: nil)
-    
+        
     }
     
     

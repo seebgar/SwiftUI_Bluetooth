@@ -1,3 +1,3 @@
 # SwiftUI Bluetooth
 
-![iPad](iPad.PNG)
+![iPhone](iPhone.PNG)

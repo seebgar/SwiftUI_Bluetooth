@@ -28,11 +28,12 @@ struct BluetoothView: View {
                     self.manager.startManager()
                 })
             }
-            .id(UUID())
-            .navigationBarTitle("Bluetooth Devices")
+            // .id(UUID()) // ** !! 
             .alert(isPresented: self.$manager.showAlert) {
                 Alert(title: Text("Bluetooth is turned off"))
             }
+            
+            .navigationBarTitle(Text("Bluetooth Devices"), displayMode: .inline)
         }
         .onAppear(perform: activate)
         .navigationViewStyle(StackNavigationViewStyle())

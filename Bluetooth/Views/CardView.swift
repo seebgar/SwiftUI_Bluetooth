@@ -19,6 +19,17 @@ struct CardView: View {
     
     @State private var showSheet: Bool = false
     
+    private let bounds: CGRect = UIScreen.main.bounds
+    private var isDeviceiPad: Bool {
+        get {
+            return ( bounds.height > 1000 || bounds.width > 1000 )
+        }
+    }
+    private var contentWidth: CGFloat {
+        get {
+            return isDeviceiPad ? 360 : 300
+        }
+    }
     
     var body: some View {
         VStack {
@@ -41,27 +52,33 @@ struct CardView: View {
                 Spacer()
             }
             .padding(.top, 16)
+            .padding(.leading, isDeviceiPad ? 15 : 0)
+            
             Text(description)
                 .font(.system(size: 16))
-                .frame(width: 300, height: 50, alignment: .topLeading)
+                .frame(width: contentWidth, height: 50, alignment: .topLeading)
                 .foregroundColor(Color.RGB(red: 139, green: 142, blue: 145))
                 .padding(.top)
             
             Button("More", action: {
                 self.showSheet.toggle()
             })
-                .frame(width: 300, height: 24, alignment: .leading)
+                .frame(width: contentWidth, height: 24, alignment: .leading)
         }
         .padding(.vertical)
         .background(Color.RGB(red: 233, green: 235, blue: 239))
         .cornerRadius(20)
-        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 12, y: 12)
-        .shadow(color: Color.white.opacity(1), radius: 10, x: -12, y: -12)
-        .frame(width: 350, height: 200)
+        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 10, y: 10)
+        .shadow(color: Color.white.opacity(1), radius: 12, x: -8, y: -10)
+        .frame(width: isDeviceiPad ? 420 : 350, height: isDeviceiPad ? 240 : 200)
             
         .sheet(isPresented: $showSheet) {
             DetailView(image: self.image, title: self.title, location: self.location, description: self.description, action: self.action) {
-                Text("Working")
+                Group {
+                    Pagination(id: self.id)
+                    .environmentObject(BluetoothManager())
+                        .padding(.top, -4)
+                }
             }
             .padding(.top, 46)
         }
@@ -76,7 +93,7 @@ struct CardView_Previews: PreviewProvider {
         ZStack {
             Color.RGB(red: 233, green: 235, blue: 239)
             
-            CardView(id: "1", image: "network", title: "Product Designer", location: "Facebook Inc. Menlo Park, CA", description: "We are looking for an outstanding web designer who is passionate about UI/UX.", action: "Prueba")
+            CardView(id: "3", image: "network", title: "Product Designer", location: "Facebook Inc. Menlo Park, CA", description: "We are looking for an outstanding web designer who is passionate about UI/UX.", action: "Prueba")
         }
         .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
         .previewDisplayName("iPhone 11")

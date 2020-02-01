@@ -61,7 +61,7 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
         
         if central.state != .poweredOn {
             print("! Bluetooth is OFF")
-            showAlert.toggle()
+            showAlert = true
         } else {
             print("--> Scanning")
             showAlert = false

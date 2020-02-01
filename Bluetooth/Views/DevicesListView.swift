@@ -37,7 +37,7 @@ struct DevicesListView: View {
             List ( self.devices.sorted(by: <) ) {
                 Text("\($0.name) - \($0.identifier)")
             }
-            .navigationBarTitle(Text("Devices in Database"))
+            .navigationBarTitle(Text("Devices in Database"), displayMode: .inline)
         }
         .onAppear(perform: getDevices)
         .navigationViewStyle(StackNavigationViewStyle())

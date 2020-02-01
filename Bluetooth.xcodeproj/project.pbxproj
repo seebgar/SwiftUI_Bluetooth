@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C1BEAE473CEBD0C5DDACC09 /* Pods_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43FC5343CC5E46E37FE9414 /* Pods_Bluetooth.framework */; };
+		9E08D7F023E5123D00432706 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E08D7EF23E5123D00432706 /* GoogleService-Info.plist */; };
 		9E29FDAC23E2334800152000 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAB23E2334800152000 /* BluetoothView.swift */; };
-		9E29FDAE23E235E100152000 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E29FDAD23E235E100152000 /* GoogleService-Info.plist */; };
 		9E29FDB023E2368B00152000 /* DevicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAF23E2368B00152000 /* DevicesListView.swift */; };
 		9E37172623E3A13600E497E4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37172523E3A13600E497E4 /* Home.swift */; };
 		9E63601023E4EC24000300E6 /* SizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63600F23E4EC24000300E6 /* SizeTest.swift */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		382C4EB89163A10863ACB616 /* Pods-Bluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.release.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		61DEBBF01A53D064D3EB85D5 /* Pods-Bluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.debug.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		9E08D7EF23E5123D00432706 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E29FDAB23E2334800152000 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
-		9E29FDAD23E235E100152000 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E29FDAF23E2368B00152000 /* DevicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesListView.swift; sourceTree = "<group>"; };
 		9E37172523E3A13600E497E4 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9E63600F23E4EC24000300E6 /* SizeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				9E86E93923E099C300BD29E6 /* Assets.xcassets */,
 				9E86E93E23E099C300BD29E6 /* LaunchScreen.storyboard */,
 				9E86E94123E099C300BD29E6 /* Info.plist */,
-				9E29FDAD23E235E100152000 /* GoogleService-Info.plist */,
+				9E08D7EF23E5123D00432706 /* GoogleService-Info.plist */,
 				9E86E93B23E099C300BD29E6 /* Preview Content */,
 			);
 			path = Bluetooth;
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E86E94023E099C300BD29E6 /* LaunchScreen.storyboard in Resources */,
-				9E29FDAE23E235E100152000 /* GoogleService-Info.plist in Resources */,
+				9E08D7F023E5123D00432706 /* GoogleService-Info.plist in Resources */,
 				9E86E93D23E099C300BD29E6 /* Preview Assets.xcassets in Resources */,
 				9E86E93A23E099C300BD29E6 /* Assets.xcassets in Resources */,
 			);

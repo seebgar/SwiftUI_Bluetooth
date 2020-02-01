@@ -19,15 +19,9 @@ struct CardView: View {
     
     @State private var showSheet: Bool = false
     
-    private let bounds: CGRect = UIScreen.main.bounds
-    private var isDeviceiPad: Bool {
-        get {
-            return ( bounds.height > 1000 || bounds.width > 1000 )
-        }
-    }
     private var contentWidth: CGFloat {
         get {
-            return isDeviceiPad ? 360 : 300
+            return isDeviceiPad ? 360 : 320
         }
     }
     
@@ -59,6 +53,7 @@ struct CardView: View {
                 .frame(width: contentWidth, height: 50, alignment: .topLeading)
                 .foregroundColor(Color.RGB(red: 139, green: 142, blue: 145))
                 .padding(.top)
+              
             
             Button("More", action: {
                 self.showSheet.toggle()

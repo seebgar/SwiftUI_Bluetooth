@@ -1,3 +1,3 @@
 # SwiftUI Bluetooth
 
-![iPhone](iPhone11.PNG)
+![iPhone](iPhone11.png)

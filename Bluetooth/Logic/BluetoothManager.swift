@@ -74,29 +74,29 @@ open class BluetoothManager: NSObject, ObservableObject, CBPeripheralDelegate, C
      Event occurs when you receive scan results.
      */
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print("--> Discovered peripherals")
-        print("* Peripheral Name: \(String(describing: peripheral.name))\n* RSSI: \(String(RSSI.doubleValue))\n* Description: \(String(describing: peripheral.description))")
         
-        let desc = peripheral.description.split(separator: ",")
-        let identifier = desc[1].replacingOccurrences(of: "identifier = ", with: "")
-        let status = desc[3].replacingOccurrences(of: "state = ", with: "").replacingOccurrences(of: ">", with: "")
-        let apareil = Device(name: peripheral.name, description: peripheral.description, identifier: identifier, status: status)
-        devices.append(apareil)
-        
-        if self.devices.count > 10 {
-            self.centralManager.stopScan()
+        if let name = peripheral.name {
+            print("\n--> Discovered Known Peripherals")
+            print("* Name: \(String(describing: peripheral.name))\n* RSSI: \(String(RSSI.doubleValue))\n* Description: \(String(describing: peripheral.description))\n")
             
-            for device in self.devices {
-                self.ref.child(device.identifier).setValue(
+            let bluetoothDevice = Device(name: name, description: peripheral.description, identifier: peripheral.identifier.uuidString, status: String(peripheral.state.rawValue))
+            devices.append(bluetoothDevice)
+            
+            DispatchQueue.main.async {
+                self.ref.child(bluetoothDevice.identifier).setValue(
                     [
-                        "name": device.name,
-                        "identifier": device.identifier,
-                        "description": device.description
+                        "name": bluetoothDevice.name,
+                        "identifier": bluetoothDevice.identifier,
                     ]
                 )
             }
             
         }
+        
+        if self.devices.count > 20 {
+            self.centralManager.stopScan()
+        }
+        
         
         /**
          Connection Management

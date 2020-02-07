@@ -18,6 +18,7 @@ struct CardView: View {
     public var action: String
     
     @State private var showSheet: Bool = false
+    @State private var imageView: UIImage = UIImage(named: "4") ?? UIImage()
     
     private var contentWidth: CGFloat {
         get {
@@ -28,13 +29,24 @@ struct CardView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(image)
+                if self.id == "4" {
+                    Image(uiImage: imageView)
                     .renderingMode(.original)
                     .resizable()
                     .frame(width: 46, height: 46)
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .padding(.trailing)
                     .padding(.leading, 16)
+                } else {
+                    Image( image )
+                    .renderingMode(.original)
+                    .resizable()
+                    .frame(width: 46, height: 46)
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .padding(.trailing)
+                    .padding(.leading, 16)
+                }
+
                 VStack (alignment: .leading, spacing: 8) {
                     Text(title)
                         .font(.system(size: 18))
@@ -53,7 +65,7 @@ struct CardView: View {
                 .frame(width: contentWidth, height: 50, alignment: .topLeading)
                 .foregroundColor(Color.RGB(red: 139, green: 142, blue: 145))
                 .padding(.top)
-              
+            
             
             Button("More", action: {
                 self.showSheet.toggle()
@@ -68,15 +80,21 @@ struct CardView: View {
         .frame(width: isDeviceiPad ? 420 : 350, height: isDeviceiPad ? 240 : 200)
             
         .sheet(isPresented: $showSheet) {
-            DetailView(image: self.image, title: self.title, location: self.location, description: self.description, action: self.action) {
-                Group {
-                    Pagination(id: self.id)
-                    .environmentObject(BluetoothManager())
-                        .padding(.top, -4)
+            if self.id == "4" {
+                ImagePickerDetail(image: self.$imageView, title: self.title, location: self.location, description: self.description, action: self.action)
+            } else  {
+                DetailView(image: self.image, title: self.title, location: self.location, description: self.description, action: self.action) {
+                    Group {
+                        Pagination(id: self.id)
+                            .environmentObject(BluetoothManager())
+                            .padding(.top, -4)
+                    }
                 }
+                .padding(.top, 46)
             }
-            .padding(.top, 46)
         }
+        
+        
         
     }
     

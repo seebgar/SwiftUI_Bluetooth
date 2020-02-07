@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1C1BEAE473CEBD0C5DDACC09 /* Pods_Bluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43FC5343CC5E46E37FE9414 /* Pods_Bluetooth.framework */; };
 		9E08D7F023E5123D00432706 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E08D7EF23E5123D00432706 /* GoogleService-Info.plist */; };
+		9E17630623ED80FB0007EBC6 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17630523ED80FB0007EBC6 /* ImagePickerController.swift */; };
+		9E17630823ED8D550007EBC6 /* ImagePickerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17630723ED8D550007EBC6 /* ImagePickerDetail.swift */; };
 		9E29FDAC23E2334800152000 /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAB23E2334800152000 /* BluetoothView.swift */; };
 		9E29FDB023E2368B00152000 /* DevicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29FDAF23E2368B00152000 /* DevicesListView.swift */; };
 		9E37172623E3A13600E497E4 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37172523E3A13600E497E4 /* Home.swift */; };
@@ -33,6 +35,8 @@
 		382C4EB89163A10863ACB616 /* Pods-Bluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.release.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		61DEBBF01A53D064D3EB85D5 /* Pods-Bluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bluetooth.debug.xcconfig"; path = "Target Support Files/Pods-Bluetooth/Pods-Bluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		9E08D7EF23E5123D00432706 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E17630523ED80FB0007EBC6 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		9E17630723ED8D550007EBC6 /* ImagePickerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerDetail.swift; sourceTree = "<group>"; };
 		9E29FDAB23E2334800152000 /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		9E29FDAF23E2368B00152000 /* DevicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesListView.swift; sourceTree = "<group>"; };
 		9E37172523E3A13600E497E4 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 				9E75B3E023E4676200623461 /* Pagination.swift */,
 				9E6F62B323E3A7A1003EB013 /* CardView.swift */,
 				9E6F62B723E3C87E003EB013 /* DetailView.swift */,
+				9E17630723ED8D550007EBC6 /* ImagePickerDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				9E86E94823E099F400BD29E6 /* BluetoothManager.swift */,
+				9E17630523ED80FB0007EBC6 /* ImagePickerController.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -311,10 +317,12 @@
 				9E75B3E123E4676200623461 /* Pagination.swift in Sources */,
 				9E37172623E3A13600E497E4 /* Home.swift in Sources */,
 				9E75B3DF23E4645800623461 /* Card.swift in Sources */,
+				9E17630823ED8D550007EBC6 /* ImagePickerDetail.swift in Sources */,
 				9E29FDAC23E2334800152000 /* BluetoothView.swift in Sources */,
 				9E86E93623E099BF00BD29E6 /* SceneDelegate.swift in Sources */,
 				9E6F62B223E3A432003EB013 /* Extensions.swift in Sources */,
 				9E6F62B623E3B0A1003EB013 /* Store.swift in Sources */,
+				9E17630623ED80FB0007EBC6 /* ImagePickerController.swift in Sources */,
 				9E86E94923E099F400BD29E6 /* BluetoothManager.swift in Sources */,
 				9E86E93823E099BF00BD29E6 /* ContentView.swift in Sources */,
 				9E6F62B423E3A7A1003EB013 /* CardView.swift in Sources */,

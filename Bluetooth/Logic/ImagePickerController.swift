@@ -13,10 +13,12 @@ struct  ImagePickerView: UIViewControllerRepresentable {
     
     @Binding var isPresenting: Bool
     @Binding var image: UIImage
+    @Binding var showCamera: Bool
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
         let picker: UIImagePickerController = UIImagePickerController()
         picker.delegate = context.coordinator
+        picker.sourceType = showCamera ? .camera : .photoLibrary
         return picker
     }
     
@@ -38,6 +40,9 @@ struct  ImagePickerView: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selected = info[.originalImage] as? UIImage {
                 self.parent.image = selected
+                if picker.sourceType == .camera {
+                    UIImageWriteToSavedPhotosAlbum(selected, nil, nil, nil)
+                }
             }
             self.parent.isPresenting = false
         }

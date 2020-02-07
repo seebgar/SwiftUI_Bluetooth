@@ -17,7 +17,7 @@ struct ImagePickerDetail: View {
     public var action: String
     
     @State private var showPicker: Bool = false
-    
+    @State private var showCamera: Bool = false
     
     var body: some View {
         NavigationView {
@@ -51,6 +51,7 @@ struct ImagePickerDetail: View {
                 VStack (alignment: .center) {
                     Button(action: {
                         self.showPicker.toggle();
+                        self.showCamera = false
                     } ) {
                         Text("\(action)")
                             .frame(width: 300, height: 40)
@@ -58,6 +59,18 @@ struct ImagePickerDetail: View {
                             .foregroundColor(.white)
                             .cornerRadius(12)
                     }
+                    
+                    Button(action: {
+                        self.showPicker.toggle();
+                        self.showCamera = true
+                    } ) {
+                        Text("Open Camera")
+                            .frame(width: 300, height: 40)
+                            .background(Color.RGB(red: 0, green: 87, blue: 217))
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                    }
+                    .padding(.top, 16)
                 }
                 .padding(.top)
                 
@@ -67,7 +80,7 @@ struct ImagePickerDetail: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showPicker) {
-            ImagePickerView(isPresenting: self.$showPicker, image: self.$image)
+            ImagePickerView(isPresenting: self.$showPicker, image: self.$image, showCamera: self.$showCamera)
         }
     }
 }

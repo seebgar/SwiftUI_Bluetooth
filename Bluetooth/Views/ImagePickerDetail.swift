@@ -18,6 +18,7 @@ struct ImagePickerDetail: View {
     
     @State private var showPicker: Bool = false
     @State private var showCamera: Bool = false
+    @State private var showFilter: Bool = false
     
     var body: some View {
         NavigationView {
@@ -46,6 +47,13 @@ struct ImagePickerDetail: View {
                         .foregroundColor(Color.RGB(red: 139, green: 142, blue: 145))
                         .padding()
                         .padding(.horizontal)
+                }
+                
+                VStack {
+                    if self.showFilter {
+                        ImageFilterView(imageSelected: self.$image)
+                            .frame(height: 360)
+                    }
                 }
                 
                 VStack (alignment: .center) {
@@ -80,14 +88,14 @@ struct ImagePickerDetail: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showPicker) {
-            ImagePickerView(isPresenting: self.$showPicker, image: self.$image, showCamera: self.$showCamera)
+            ImagePickerView(isPresenting: self.$showPicker, image: self.$image, showCamera: self.$showCamera, showFilter: self.$showFilter)
         }
     }
 }
 
 struct ImagePickerDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePickerDetail(image: .constant(UIImage(named: "network") ?? UIImage()), title: "Product Designer", location: "Facebook Inc. Menlo Park, CA", description: "We are looking for an outstanding web designer who is passionate about UI/UX.", action: "Look for devices" )
+        ImagePickerDetail(image: .constant(UIImage(named: "network") ?? UIImage()), title: "Product Designer", location: "Facebook Inc. Menlo Park, CA", description: "We are looking for an outstanding web designer who is passionate about UI/UX.", action: "Pick" )
             .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
             .previewDisplayName("iPhone 11")
     }
